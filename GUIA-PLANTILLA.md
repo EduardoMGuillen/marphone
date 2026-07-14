@@ -257,6 +257,7 @@ Origen: `NEXT_PUBLIC_SITE_URL`, o en build de Vercel `VERCEL_PROJECT_PRODUCTION_
 - Clic o Enter sobre una opción → `/productos/[slug]`
 - Sin coincidencias + Enter → `/?q=…#catalogo` (filtra el catálogo)
 - Catálogo: `Catalog.tsx` lee `q`, muestra “Resultados para…” y botón limpiar; `scroll-mt` para el header fijo
+- **iOS / Safari:** el input debe usar al menos **16px** en mobile (`text-base md:text-sm`). Con `text-sm` (< 16px) Safari hace **zoom automático** al enfocar el campo
 
 ## Hero
 
