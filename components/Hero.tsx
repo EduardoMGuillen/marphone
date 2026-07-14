@@ -4,23 +4,22 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { whatsappInterestUrl } from "@/lib/contact";
 
-type Props = {
-  heroImage?: string;
-};
+const HERO_IMAGE = "/hero/iphones.jpg";
 
-export default function Hero({ heroImage = "/products/iphone-17-pro-max.jpg" }: Props) {
+export default function Hero() {
   return (
     <section className="relative min-h-[100svh] overflow-hidden bg-black text-white">
       <div className="absolute inset-0">
         <Image
-          src={heroImage}
-          alt="Smartphone premium Marphone"
+          src={HERO_IMAGE}
+          alt="iPhones premium Marphone"
           fill
           priority
-          className="object-cover object-center opacity-55"
+          quality={90}
+          className="object-cover object-[center_30%] opacity-60"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/45 to-black" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black" />
       </div>
 
       <div className="relative mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-end px-5 pb-20 pt-28 md:justify-center md:px-8 md:pb-28">

@@ -40,7 +40,8 @@ export default async function ProductPage({ params }: Props) {
               src={product.image}
               alt={product.name}
               fill
-              className={`object-contain p-8 ${soldOut ? "opacity-70" : ""}`}
+              quality={90}
+              className={`object-cover ${soldOut ? "opacity-70" : ""}`}
               sizes="(max-width:768px) 100vw, 50vw"
               priority
             />

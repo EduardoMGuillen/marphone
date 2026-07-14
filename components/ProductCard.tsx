@@ -25,7 +25,8 @@ export default function ProductCard({ product }: Props) {
           src={product.image}
           alt={product.name}
           fill
-          className={`object-contain p-6 transition duration-500 group-hover:scale-[1.03] ${
+          quality={85}
+          className={`object-cover transition duration-500 group-hover:scale-[1.03] ${
             soldOut ? "opacity-60" : ""
           }`}
           sizes="(max-width:768px) 50vw, 25vw"

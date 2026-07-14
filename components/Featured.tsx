@@ -48,7 +48,8 @@ export default function Featured({ products }: Props) {
                   src={product.image}
                   alt={product.name}
                   fill
-                  className={`object-contain p-8 transition duration-700 group-hover:scale-105 ${
+                  quality={85}
+                  className={`object-cover transition duration-700 group-hover:scale-105 ${
                     isProductSoldOut(product) ? "opacity-60" : ""
                   }`}
                   sizes="(max-width:768px) 100vw, 33vw"

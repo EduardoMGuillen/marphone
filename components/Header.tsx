@@ -18,7 +18,7 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-black/5 bg-white/80 backdrop-blur-xl">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-black/10 bg-[#ececef]/92 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 md:h-18 md:px-8">
         <Link href="/" className="relative h-8 w-36 md:h-9 md:w-44" aria-label="Marphone">
           <Image
@@ -78,7 +78,7 @@ export default function Header() {
       </div>
 
       {open && (
-        <div className="border-t border-black/5 bg-white px-5 py-6 md:hidden">
+        <div className="border-t border-black/10 bg-[#ececef] px-5 py-6 md:hidden">
           <nav className="flex flex-col gap-4">
             {nav.map((item) => (
               <a
