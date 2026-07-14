@@ -33,7 +33,7 @@ export default async function ProductPage({ params }: Props) {
   return (
     <>
       <Header />
-      <main className="flex-1 bg-white pt-20">
+      <main className="flex-1 bg-white pt-28 md:pt-20">
         <div className="mx-auto grid max-w-7xl gap-10 px-5 py-12 md:grid-cols-2 md:gap-16 md:px-8 md:py-20">
           <div className="relative aspect-square overflow-hidden rounded-3xl bg-surface">
             <Image
