@@ -22,6 +22,7 @@ export default function ProductPurchase({ product }: Props) {
     : whatsappInterestUrl(
         product.name,
         selectedColor || undefined,
+        product.slug,
       );
 
   return (
@@ -91,7 +92,8 @@ export default function ProductPurchase({ product }: Props) {
       {!soldOut ? (
         <p className="mt-4 text-xs text-muted">
           Al tocar WhatsApp se abre un mensaje con el modelo
-          {selectedColor ? ` y el color ${selectedColor}` : ""}.
+          {selectedColor ? ` y el color ${selectedColor}` : ""}, más el enlace
+          de este producto.
         </p>
       ) : (
         <p className="mt-4 text-xs text-muted">

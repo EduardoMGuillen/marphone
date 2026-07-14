@@ -72,7 +72,7 @@ export default function ProductCard({ product }: Props) {
             </Link>
           ) : (
             <a
-              href={whatsappInterestUrl(product.name)}
+              href={whatsappInterestUrl(product.name, undefined, product.slug)}
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-full bg-brand-blue px-3 py-2 text-center text-xs font-semibold text-white transition hover:bg-brand-blue-dark"

@@ -67,7 +67,11 @@ export default function Featured({ products }: Props) {
                 <div className="mt-5 flex flex-wrap gap-2">
                   {isProductSoldOut(product) ? null : (
                     <a
-                      href={whatsappInterestUrl(product.name)}
+                      href={whatsappInterestUrl(
+                        product.name,
+                        undefined,
+                        product.slug,
+                      )}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="rounded-full bg-black px-4 py-2 text-xs font-semibold text-white transition hover:bg-brand-blue"
