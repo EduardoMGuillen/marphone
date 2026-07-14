@@ -4,7 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { whatsappInterestUrl } from "@/lib/contact";
 
-const HERO_IMAGE = "/hero/iphones.jpg";
+const HERO_IMAGE = "/hero/iphones.avif";
 
 export default function Hero() {
   return (
@@ -12,14 +12,14 @@ export default function Hero() {
       <div className="absolute inset-0">
         <Image
           src={HERO_IMAGE}
-          alt="iPhones premium Marphone"
+          alt="Línea iPhone 17 — Marphone"
           fill
           priority
-          quality={90}
-          className="object-cover object-[center_30%] opacity-60"
+          quality={95}
+          className="object-cover object-center opacity-70"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/45 to-black" />
       </div>
 
       <div className="relative mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-end px-5 pb-20 pt-28 md:justify-center md:px-8 md:pb-28">

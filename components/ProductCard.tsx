@@ -25,8 +25,8 @@ export default function ProductCard({ product }: Props) {
           src={product.image}
           alt={product.name}
           fill
-          quality={85}
-          className={`object-cover transition duration-500 group-hover:scale-[1.03] ${
+          quality={90}
+          className={`object-contain p-5 transition duration-500 group-hover:scale-[1.03] ${
             soldOut ? "opacity-60" : ""
           }`}
           unoptimized={product.image.startsWith("http")}

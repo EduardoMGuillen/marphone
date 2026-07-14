@@ -40,9 +40,9 @@ export default async function ProductPage({ params }: Props) {
               src={product.image}
               alt={product.name}
               fill
-              quality={90}
+              quality={92}
               unoptimized={product.image.startsWith("http")}
-              className={`object-cover ${soldOut ? "opacity-70" : ""}`}
+              className={`object-contain p-10 ${soldOut ? "opacity-70" : ""}`}
               sizes="(max-width:768px) 100vw, 50vw"
               priority
             />
