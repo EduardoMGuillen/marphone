@@ -1,6 +1,7 @@
 export type Category =
   | "Teléfonos"
   | "Tablets"
+  | "Consolas"
   | "Audífonos"
   | "Wearables"
   | "Accesorios"

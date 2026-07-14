@@ -946,5 +946,253 @@
     ],
     "image": "/products/honor-magic7-pro.jpg",
     "soldOut": false
+  },
+  {
+    "slug": "playstation-5",
+    "name": "PlayStation 5",
+    "category": "Consolas",
+    "brand": "Sony",
+    "series": "PlayStation 5",
+    "tagline": "La consola de nueva generación. Velocidad, 4K y DualSense.",
+    "priceLabel": "Consultar",
+    "storage": [
+      "825 GB SSD"
+    ],
+    "colors": [
+      {
+        "name": "Blanco / Negro",
+        "soldOut": false
+      }
+    ],
+    "specs": [
+      "4K UHD",
+      "Ray tracing",
+      "SSD ultrarrápido",
+      "Tempest 3D Audio"
+    ],
+    "featured": true,
+    "image": "/products/playstation-5.jpg",
+    "soldOut": false
+  },
+  {
+    "slug": "dualsense-ps5",
+    "name": "Control DualSense PS5",
+    "category": "Consolas",
+    "brand": "Sony",
+    "series": "DualSense",
+    "tagline": "Retroalimentación háptica y gatillos adaptativos oficiales.",
+    "priceLabel": "Consultar",
+    "storage": [],
+    "colors": [
+      {
+        "name": "Blanco",
+        "soldOut": false
+      },
+      {
+        "name": "Midnight Black",
+        "soldOut": false
+      },
+      {
+        "name": "Cobalt Blue",
+        "soldOut": false
+      },
+      {
+        "name": "Nova Pink",
+        "soldOut": false
+      }
+    ],
+    "specs": [
+      "Háptica avanzada",
+      "Gatillos adaptativos",
+      "Micrófono integrado",
+      "USB-C"
+    ],
+    "featured": true,
+    "image": "/products/dualsense-ps5.jpg",
+    "soldOut": false
+  },
+  {
+    "slug": "nintendo-switch-oled",
+    "name": "Nintendo Switch",
+    "category": "Consolas",
+    "brand": "Nintendo",
+    "series": "Nintendo Switch",
+    "tagline": "Juega en casa o en cualquier lugar. Joy-Con incluidos.",
+    "priceLabel": "Consultar",
+    "storage": [
+      "32 GB",
+      "64 GB OLED"
+    ],
+    "colors": [
+      {
+        "name": "Neon rojo / azul",
+        "soldOut": false
+      },
+      {
+        "name": "Gris",
+        "soldOut": false
+      },
+      {
+        "name": "Blanco OLED",
+        "soldOut": false
+      }
+    ],
+    "specs": [
+      "Modo TV / mesa / portátil",
+      "Joy-Con desmontables",
+      "Modo multijugador local"
+    ],
+    "featured": true,
+    "image": "/products/nintendo-switch-oled.jpg",
+    "soldOut": false
+  },
+  {
+    "slug": "nintendo-switch-pro",
+    "name": "Control Pro Nintendo Switch",
+    "category": "Consolas",
+    "brand": "Nintendo",
+    "series": "Switch Pro",
+    "tagline": "Ergonomía premium para sesiones largas en Switch.",
+    "priceLabel": "Consultar",
+    "storage": [],
+    "colors": [
+      {
+        "name": "Negro",
+        "soldOut": false
+      }
+    ],
+    "specs": [
+      "Inalámbrico",
+      "Amiibo NFC",
+      "Batería de larga duración",
+      "USB-C"
+    ],
+    "featured": false,
+    "image": "/products/nintendo-switch-pro.jpg",
+    "soldOut": false
+  },
+  {
+    "slug": "jbl-flip-6",
+    "name": "JBL Flip 6",
+    "category": "Accesorios",
+    "brand": "JBL",
+    "series": "Flip",
+    "tagline": "Parlante portátil con sonido potente y batería para todo el día.",
+    "priceLabel": "Consultar",
+    "storage": [],
+    "colors": [
+      {
+        "name": "Negro",
+        "soldOut": false
+      },
+      {
+        "name": "Azul",
+        "soldOut": false
+      },
+      {
+        "name": "Rojo",
+        "soldOut": false
+      },
+      {
+        "name": "Gris",
+        "soldOut": false
+      }
+    ],
+    "specs": [
+      "Bluetooth",
+      "IP67",
+      "PartyBoost",
+      "Hasta 12 h de batería"
+    ],
+    "featured": true,
+    "image": "/products/jbl-flip-6.jpg",
+    "soldOut": false
+  },
+  {
+    "slug": "jbl-charge-5",
+    "name": "JBL Charge 5",
+    "category": "Accesorios",
+    "brand": "JBL",
+    "series": "Charge",
+    "tagline": "Bajos potentes, resistencia al agua y power bank integrado.",
+    "priceLabel": "Consultar",
+    "storage": [],
+    "colors": [
+      {
+        "name": "Negro",
+        "soldOut": false
+      },
+      {
+        "name": "Azul",
+        "soldOut": false
+      },
+      {
+        "name": "Rojo",
+        "soldOut": false
+      },
+      {
+        "name": "Verde",
+        "soldOut": false
+      }
+    ],
+    "specs": [
+      "Bluetooth",
+      "IP67",
+      "Carga dispositivos",
+      "Hasta 20 h de batería"
+    ],
+    "featured": true,
+    "image": "/products/jbl-charge-5.jpg",
+    "soldOut": false
+  },
+  {
+    "slug": "airpods-pro-2",
+    "name": "AirPods Pro (2.ª generación)",
+    "category": "Audífonos",
+    "brand": "Apple",
+    "series": "AirPods Pro",
+    "tagline": "Cancelación activa de ruido y audio espacial personalizado.",
+    "priceLabel": "Consultar",
+    "storage": [],
+    "colors": [
+      {
+        "name": "Blanco",
+        "soldOut": false
+      }
+    ],
+    "specs": [
+      "ANC",
+      "Audio espacial",
+      "Chip H2",
+      "Estuche MagSafe / USB-C"
+    ],
+    "featured": true,
+    "image": "/products/airpods-pro-2.jpg",
+    "soldOut": false
+  },
+  {
+    "slug": "airpods-4",
+    "name": "AirPods 4",
+    "category": "Audífonos",
+    "brand": "Apple",
+    "series": "AirPods",
+    "tagline": "Diseño open-ear, comodidad todo el día y sonido Apple.",
+    "priceLabel": "Consultar",
+    "storage": [],
+    "colors": [
+      {
+        "name": "Blanco",
+        "soldOut": false
+      }
+    ],
+    "specs": [
+      "Chip H2",
+      "Emparejamiento instantáneo",
+      "Estuche de carga",
+      "Siri"
+    ],
+    "featured": true,
+    "image": "/products/airpods-4.jpg",
+    "soldOut": false
   }
 ]

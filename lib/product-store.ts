@@ -5,15 +5,37 @@ import { normalizeColors } from "@/lib/color-utils";
 import { seedProducts } from "@/lib/seed-products";
 import {
   blobMissingMessage,
+  hasSeedMergeMarker,
   isBlobConfigured,
   readBlobCatalog,
   readLocalCatalog,
   writeBlobCatalog,
   writeLocalCatalog,
+  writeSeedMergeMarker,
 } from "@/lib/blob-store";
 
 export { slugify } from "@/lib/slugify";
 export { isBlobConfigured } from "@/lib/blob-store";
+
+/**
+ * Bundles one-shot: la 1.ª vez en Blob se agregan estos slugs del seed si faltan.
+ * Luego se escribe un marker; borrar un producto no lo vuelve a traer.
+ */
+const SEED_MERGE_BUNDLES: Array<{ id: string; slugs: string[] }> = [
+  {
+    id: "gaming-audio-2026-07",
+    slugs: [
+      "playstation-5",
+      "dualsense-ps5",
+      "nintendo-switch-oled",
+      "nintendo-switch-pro",
+      "jbl-flip-6",
+      "jbl-charge-5",
+      "airpods-pro-2",
+      "airpods-4",
+    ],
+  },
+];
 
 type RawProduct = Partial<Product> & {
   brand: string;
@@ -61,17 +83,45 @@ function seedList() {
  * Carga el catálogo.
  * - Blob: versiones en marphone/catalog/*; `[]` no se re-siembra.
  * - Primera vez (sin versiones): siembra desde data/products.json o seed.
+ * - Bundles one-shot: agregan productos nuevos del seed una sola vez.
  */
+async function applySeedMergeBundles(products: Product[]): Promise<Product[]> {
+  if (!isBlobConfigured()) return products;
+
+  let next = products;
+  const bySlug = new Map(seedList().map((p) => [p.slug, p]));
+
+  for (const bundle of SEED_MERGE_BUNDLES) {
+    if (await hasSeedMergeMarker(bundle.id)) continue;
+
+    const existing = new Set(next.map((p) => p.slug));
+    const toAdd = bundle.slugs
+      .filter((slug) => !existing.has(slug))
+      .map((slug) => bySlug.get(slug))
+      .filter((p): p is Product => Boolean(p));
+
+    if (toAdd.length > 0) {
+      next = [...next, ...toAdd];
+      await writeBlobCatalog(next);
+    }
+    await writeSeedMergeMarker(bundle.id);
+  }
+
+  return next;
+}
+
 async function loadProducts(): Promise<Product[]> {
   if (isBlobConfigured()) {
     const fromBlob = await readBlobCatalog();
-    if (fromBlob !== null) return normalizeList(fromBlob);
+    if (fromBlob !== null) {
+      return applySeedMergeBundles(normalizeList(fromBlob));
+    }
 
     const fromLocal = await readLocalCatalog();
     const seeded = normalizeList(fromLocal);
     const initial = seeded.length > 0 ? seeded : seedList();
     await writeBlobCatalog(initial);
-    return initial;
+    return applySeedMergeBundles(initial);
   }
 
   const fromLocal = await readLocalCatalog();

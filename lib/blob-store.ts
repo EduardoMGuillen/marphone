@@ -5,6 +5,7 @@ import type { Product } from "@/lib/products";
 
 const CATALOG_PREFIX = "marphone/catalog/";
 const UPLOADS_PREFIX = "marphone/uploads/";
+const META_PREFIX = "marphone/meta/";
 const LEGACY_PATHS = ["catalog/products.json", "marphone/products.json"];
 const KEEP_VERSIONS = 5;
 
@@ -171,4 +172,29 @@ export async function uploadImageLocal(
 
 export function blobMissingMessage() {
   return "Falta configurar Vercel Blob (BLOB_READ_WRITE_TOKEN o BLOB_STORE_ID). Crea un Blob Store Public en Storage → Blob y redespliega.";
+}
+
+/** Markers one-shot para merges de seed (no reintroducen productos borrados). */
+export async function hasSeedMergeMarker(bundleId: string) {
+  const pathname = `${META_PREFIX}merged-${bundleId}.json`;
+  try {
+    const page = await list({ prefix: pathname, limit: 20 });
+    return page.blobs.some((b) => b.pathname === pathname);
+  } catch {
+    return false;
+  }
+}
+
+export async function writeSeedMergeMarker(bundleId: string) {
+  const pathname = `${META_PREFIX}merged-${bundleId}.json`;
+  await put(
+    pathname,
+    JSON.stringify({ id: bundleId, at: new Date().toISOString() }),
+    {
+      access: blobAccess(),
+      addRandomSuffix: false,
+      contentType: "application/json",
+      allowOverwrite: true,
+    },
+  );
 }

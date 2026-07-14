@@ -18,6 +18,7 @@ export default function Catalog({ products }: Props) {
     const order: Category[] = [
       "Teléfonos",
       "Tablets",
+      "Consolas",
       "Audífonos",
       "Wearables",
       "Accesorios",
