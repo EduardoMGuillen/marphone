@@ -18,7 +18,7 @@ export async function POST(request: Request) {
     const body = (await request.json()) as Record<string, unknown>;
     const product = parseProductInput(body);
     const created = await createProduct(product);
-    revalidateCatalog(created.slug);
+    revalidateCatalog(created.product?.slug);
     return NextResponse.json(created, {
       status: 201,
       headers: { "Cache-Control": "no-store" },
@@ -27,7 +27,7 @@ export async function POST(request: Request) {
     const message = error instanceof Error ? error.message : "Error al crear";
     const status = message.includes("existe")
       ? 409
-      : message.includes("BLOB_READ_WRITE_TOKEN")
+      : message.includes("Blob") || message.includes("BLOB_")
         ? 503
         : 400;
     return NextResponse.json({ error: message }, { status });

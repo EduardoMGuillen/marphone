@@ -12,7 +12,7 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-black/5 bg-white">
+    <footer className="bg-black text-white">
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 md:grid-cols-[1.4fr_1fr_1fr] md:px-8">
         <div>
           <div className="relative h-9 w-44">
@@ -24,37 +24,37 @@ export default function Footer() {
               sizes="176px"
             />
           </div>
-          <p className="mt-4 max-w-sm text-sm text-muted">
+          <p className="mt-4 max-w-sm text-sm text-white/65">
             Smartphones de alta gama en Honduras. Vitrina online, compra por
             WhatsApp e Instagram.
           </p>
         </div>
 
         <div>
-          <p className="text-sm font-semibold">Explorar</p>
-          <ul className="mt-3 space-y-2 text-sm text-muted">
+          <p className="text-sm font-semibold text-white">Explorar</p>
+          <ul className="mt-3 space-y-2 text-sm text-white/65">
             <li>
-              <a href="/#destacados" className="hover:text-foreground">
+              <a href="/#destacados" className="transition hover:text-white">
                 Destacados
               </a>
             </li>
             <li>
-              <a href="/#catalogo" className="hover:text-foreground">
+              <a href="/#catalogo" className="transition hover:text-white">
                 Catálogo
               </a>
             </li>
             <li>
-              <a href="/#nosotros" className="hover:text-foreground">
+              <a href="/#nosotros" className="transition hover:text-white">
                 Nosotros
               </a>
             </li>
             <li>
-              <a href="/#ubicacion" className="hover:text-foreground">
+              <a href="/#ubicacion" className="transition hover:text-white">
                 Ubicación
               </a>
             </li>
             <li>
-              <Link href="/#contacto" className="hover:text-foreground">
+              <Link href="/#contacto" className="transition hover:text-white">
                 Contacto
               </Link>
             </li>
@@ -62,12 +62,12 @@ export default function Footer() {
         </div>
 
         <div>
-          <p className="text-sm font-semibold">Contacto</p>
-          <ul className="mt-3 space-y-2 text-sm text-muted">
+          <p className="text-sm font-semibold text-white">Contacto</p>
+          <ul className="mt-3 space-y-2 text-sm text-white/65">
             <li>
               <a
                 href="/#ubicacion"
-                className="hover:text-brand-blue"
+                className="transition hover:text-brand-blue"
               >
                 {STORE_ADDRESS}
               </a>
@@ -77,7 +77,7 @@ export default function Footer() {
                 href={whatsappInterestUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-brand-blue"
+                className="transition hover:text-brand-blue"
               >
                 WhatsApp {WHATSAPP_DISPLAY}
               </a>
@@ -87,7 +87,7 @@ export default function Footer() {
                 href={instagramUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-brand-blue"
+                className="transition hover:text-brand-blue"
               >
                 Instagram {INSTAGRAM_HANDLE}
               </a>
@@ -96,8 +96,8 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-black/5">
-        <div className="mx-auto flex max-w-7xl flex-col gap-2 px-5 py-5 text-xs text-muted md:flex-row md:items-center md:justify-between md:px-8">
+      <div className="border-t border-white/10">
+        <div className="mx-auto flex max-w-7xl flex-col gap-2 px-5 py-5 text-xs text-white/55 md:flex-row md:items-center md:justify-between md:px-8">
           <p>© {year} Marphone. Todos los derechos reservados.</p>
           <p>
             Powered by{" "}
@@ -105,7 +105,7 @@ export default function Footer() {
               href={NEXUS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-medium text-foreground underline-offset-2 hover:underline"
+              className="font-medium text-white underline-offset-2 transition hover:text-brand-blue hover:underline"
             >
               Nexus Global
             </a>

@@ -1,17 +1,19 @@
-import { get, put } from "@vercel/blob";
-import { promises as fs } from "fs";
-import path from "path";
+import { unstable_noStore as noStore } from "next/cache";
 import type { Category, Product } from "@/lib/products";
 import { ALL_CATEGORIES } from "@/lib/products";
 import { normalizeColors } from "@/lib/color-utils";
 import { seedProducts } from "@/lib/seed-products";
-import { unstable_noStore as noStore } from "next/cache";
+import {
+  blobMissingMessage,
+  isBlobConfigured,
+  readBlobCatalog,
+  readLocalCatalog,
+  writeBlobCatalog,
+  writeLocalCatalog,
+} from "@/lib/blob-store";
 
 export { slugify } from "@/lib/slugify";
-
-const PRODUCTS_BLOB_PATH = "catalog/products.json";
-const DATA_DIR = path.join(process.cwd(), "data");
-const DATA_FILE = path.join(DATA_DIR, "products.json");
+export { isBlobConfigured } from "@/lib/blob-store";
 
 type RawProduct = Partial<Product> & {
   brand: string;
@@ -20,12 +22,8 @@ type RawProduct = Partial<Product> & {
   colors?: unknown;
 };
 
-/** Serializa escrituras en la misma instancia (evita sobrescrituras en clics rápidos). */
+/** Serializa mutaciones en la misma instancia. */
 let writeChain: Promise<void> = Promise.resolve();
-
-function useBlobStorage() {
-  return Boolean(process.env.BLOB_READ_WRITE_TOKEN);
-}
 
 function normalizeProduct(raw: RawProduct): Product {
   const category =
@@ -50,65 +48,37 @@ function normalizeProduct(raw: RawProduct): Product {
   };
 }
 
-function normalizeList(raw: unknown): Product[] {
-  if (!Array.isArray(raw)) return seedProducts.map(normalizeProduct);
-  return (raw as RawProduct[]).map(normalizeProduct);
+function normalizeList(raw: Product[] | null | undefined): Product[] {
+  if (!raw) return [];
+  return raw.map((p) => normalizeProduct(p as RawProduct));
 }
 
-async function readLocalFile(): Promise<Product[] | null> {
-  try {
-    const text = await fs.readFile(DATA_FILE, "utf8");
-    return normalizeList(JSON.parse(text));
-  } catch {
-    return null;
-  }
+function seedList() {
+  return seedProducts.map((p) => normalizeProduct(p as RawProduct));
 }
 
-async function writeLocalFile(products: Product[]) {
-  await fs.mkdir(DATA_DIR, { recursive: true });
-  await fs.writeFile(DATA_FILE, JSON.stringify(products, null, 2), "utf8");
-}
-
-async function readBlobCatalog(): Promise<Product[] | null> {
-  try {
-    const result = await get(PRODUCTS_BLOB_PATH, {
-      access: "public",
-      useCache: false,
-    });
-    if (!result?.stream) return null;
-    const text = await new Response(result.stream).text();
-    return normalizeList(JSON.parse(text));
-  } catch {
-    return null;
-  }
-}
-
-async function writeBlobCatalog(products: Product[]) {
-  await put(PRODUCTS_BLOB_PATH, JSON.stringify(products, null, 2), {
-    access: "public",
-    addRandomSuffix: false,
-    allowOverwrite: true,
-    contentType: "application/json",
-    cacheControlMaxAge: 0,
-  });
-}
-
+/**
+ * Carga el catálogo.
+ * - Blob: versiones en marphone/catalog/*; `[]` no se re-siembra.
+ * - Primera vez (sin versiones): siembra desde data/products.json o seed.
+ */
 async function loadProducts(): Promise<Product[]> {
-  if (useBlobStorage()) {
+  if (isBlobConfigured()) {
     const fromBlob = await readBlobCatalog();
-    if (fromBlob) return fromBlob;
+    if (fromBlob !== null) return normalizeList(fromBlob);
 
-    // Primera vez en Vercel: inicializa Blob con el seed / archivo local del repo
-    const fromLocal = (await readLocalFile()) ?? seedProducts.map(normalizeProduct);
-    await writeBlobCatalog(fromLocal);
-    return fromLocal;
+    const fromLocal = await readLocalCatalog();
+    const seeded = normalizeList(fromLocal);
+    const initial = seeded.length > 0 ? seeded : seedList();
+    await writeBlobCatalog(initial);
+    return initial;
   }
 
-  const fromLocal = await readLocalFile();
-  if (fromLocal) return fromLocal;
+  const fromLocal = await readLocalCatalog();
+  if (fromLocal) return normalizeList(fromLocal);
 
-  const seeded = seedProducts.map(normalizeProduct);
-  await writeLocalFile(seeded);
+  const seeded = seedList();
+  await writeLocalCatalog(seeded);
   return seeded;
 }
 
@@ -147,33 +117,39 @@ export function getBrandsFrom(
 
 export async function saveProducts(products: Product[]) {
   const run = async () => {
-    if (useBlobStorage()) {
+    if (isBlobConfigured()) {
       await writeBlobCatalog(products);
       return;
     }
     if (process.env.VERCEL) {
-      throw new Error(
-        "Falta BLOB_READ_WRITE_TOKEN. Crea un Blob Store en Vercel (Storage → Blob) y vuelve a desplegar.",
-      );
+      throw new Error(blobMissingMessage());
     }
-    await writeLocalFile(products);
+    await writeLocalCatalog(products);
   };
 
   writeChain = writeChain.then(run, run);
   await writeChain;
 }
 
-export async function createProduct(product: Product) {
+export type MutationResult = {
+  product?: Product;
+  products: Product[];
+};
+
+export async function createProduct(product: Product): Promise<MutationResult> {
   const products = await getProducts();
   if (products.some((p) => p.slug === product.slug)) {
     throw new Error("Ya existe un producto con ese slug");
   }
-  products.push(product);
-  await saveProducts(products);
-  return product;
+  const next = [...products, product];
+  await saveProducts(next);
+  return { product, products: next };
 }
 
-export async function updateProduct(slug: string, data: Product) {
+export async function updateProduct(
+  slug: string,
+  data: Product,
+): Promise<MutationResult> {
   const products = await getProducts();
   const index = products.findIndex((p) => p.slug === slug);
   if (index === -1) throw new Error("Producto no encontrado");
@@ -182,18 +158,16 @@ export async function updateProduct(slug: string, data: Product) {
     throw new Error("Ya existe un producto con ese slug");
   }
 
-  products[index] = data;
-  await saveProducts(products);
-  return data;
+  const next = [...products];
+  next[index] = data;
+  await saveProducts(next);
+  return { product: data, products: next };
 }
 
-export async function deleteProduct(slug: string) {
+export async function deleteProduct(slug: string): Promise<MutationResult> {
   const products = await getProducts();
   const next = products.filter((p) => p.slug !== slug);
   if (next.length === products.length) throw new Error("Producto no encontrado");
   await saveProducts(next);
-}
-
-export function isBlobConfigured() {
-  return useBlobStorage();
+  return { products: next };
 }

@@ -14,7 +14,7 @@ export async function PUT(request: Request, ctx: Ctx) {
     const body = (await request.json()) as Record<string, unknown>;
     const product = parseProductInput(body, slug);
     const updated = await updateProduct(slug, product);
-    revalidateCatalog(slug, updated.slug);
+    revalidateCatalog(slug, updated.product?.slug);
     return NextResponse.json(updated, {
       headers: { "Cache-Control": "no-store" },
     });
@@ -24,7 +24,7 @@ export async function PUT(request: Request, ctx: Ctx) {
       ? 404
       : message.includes("existe")
         ? 409
-        : message.includes("BLOB_READ_WRITE_TOKEN")
+        : message.includes("Blob") || message.includes("BLOB_")
           ? 503
           : 400;
     return NextResponse.json({ error: message }, { status });
@@ -34,17 +34,16 @@ export async function PUT(request: Request, ctx: Ctx) {
 export async function DELETE(_request: Request, ctx: Ctx) {
   const { slug } = await ctx.params;
   try {
-    await deleteProduct(slug);
+    const result = await deleteProduct(slug);
     revalidateCatalog(slug);
-    return NextResponse.json(
-      { ok: true },
-      { headers: { "Cache-Control": "no-store" } },
-    );
+    return NextResponse.json(result, {
+      headers: { "Cache-Control": "no-store" },
+    });
   } catch (error) {
     const message = error instanceof Error ? error.message : "Error al eliminar";
     const status = message.includes("no encontrado")
       ? 404
-      : message.includes("BLOB_READ_WRITE_TOKEN")
+      : message.includes("Blob") || message.includes("BLOB_")
         ? 503
         : 400;
     return NextResponse.json({ error: message }, { status });

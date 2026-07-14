@@ -15,9 +15,10 @@ export default async function AdminPage() {
       {onVercel && !blobOk ? (
         <p className="mb-4 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">
           Falta configurar <strong>Vercel Blob</strong> (
-          <code className="text-xs">BLOB_READ_WRITE_TOKEN</code>). Sin eso, crear /
-          editar / subir imágenes no persistirá en producción. Ve a Storage → Blob
-          en el proyecto de Vercel.
+          <code className="text-xs">BLOB_READ_WRITE_TOKEN</code> o{" "}
+          <code className="text-xs">BLOB_STORE_ID</code>). Sin eso, crear /
+          editar / subir imágenes no persistirá en producción. Crea un store{" "}
+          <strong>Public</strong> en Storage → Blob y redespliega.
         </p>
       ) : null}
       <div className="mb-6 flex flex-wrap items-center justify-between gap-3">

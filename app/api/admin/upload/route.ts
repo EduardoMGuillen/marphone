@@ -1,10 +1,14 @@
-import { put } from "@vercel/blob";
 import { NextResponse } from "next/server";
-import { promises as fs } from "fs";
-import path from "path";
+import {
+  blobMissingMessage,
+  isBlobConfigured,
+  uploadImageLocal,
+  uploadImageToBlob,
+} from "@/lib/blob-store";
 import { slugify } from "@/lib/slugify";
 
 export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 
 const MAX_BYTES = 4.5 * 1024 * 1024; // límite práctico en Vercel Server Uploads
 
@@ -36,32 +40,29 @@ export async function POST(request: Request) {
       "jpg";
     const base = slugify(file.name.replace(/\.[^.]+$/, "")) || "producto";
     const filename = `${base}-${Date.now()}.${ext}`;
+    const contentType = file.type || "image/jpeg";
 
-    if (process.env.BLOB_READ_WRITE_TOKEN) {
-      const blob = await put(`products/${filename}`, file, {
-        access: "public",
-        addRandomSuffix: false,
-        contentType: file.type || "image/jpeg",
-      });
-      return NextResponse.json({ url: blob.url });
+    if (isBlobConfigured()) {
+      const url = await uploadImageToBlob(filename, file, contentType);
+      return NextResponse.json(
+        { url },
+        { headers: { "Cache-Control": "no-store" } },
+      );
     }
 
     if (process.env.VERCEL) {
       return NextResponse.json(
-        {
-          error:
-            "Falta BLOB_READ_WRITE_TOKEN. Crea un Blob Store en Vercel para subir imágenes.",
-        },
-        { status: 500 },
+        { error: blobMissingMessage() },
+        { status: 503 },
       );
     }
 
-    // Desarrollo local sin Blob
-    const dir = path.join(process.cwd(), "public", "products");
-    await fs.mkdir(dir, { recursive: true });
     const buffer = Buffer.from(await file.arrayBuffer());
-    await fs.writeFile(path.join(dir, filename), buffer);
-    return NextResponse.json({ url: `/products/${filename}` });
+    const url = await uploadImageLocal(filename, buffer);
+    return NextResponse.json(
+      { url },
+      { headers: { "Cache-Control": "no-store" } },
+    );
   } catch (error) {
     const message =
       error instanceof Error ? error.message : "No se pudo subir la imagen";
