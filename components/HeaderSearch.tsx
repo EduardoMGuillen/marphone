@@ -191,7 +191,7 @@ export default function HeaderSearch({
           autoComplete="off"
           className={
             inputClassName ??
-            "w-full rounded-full border border-black/10 bg-white/80 py-2 pl-4 pr-10 text-sm text-foreground outline-none transition placeholder:text-muted focus:border-brand-blue"
+            "w-full rounded-full border border-black/10 bg-white/80 py-2 pl-4 pr-10 text-base text-foreground outline-none transition placeholder:text-muted focus:border-brand-blue md:text-sm"
           }
         />
         <button
