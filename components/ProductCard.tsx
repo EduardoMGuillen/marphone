@@ -29,6 +29,7 @@ export default function ProductCard({ product }: Props) {
           className={`object-cover transition duration-500 group-hover:scale-[1.03] ${
             soldOut ? "opacity-60" : ""
           }`}
+          unoptimized={product.image.startsWith("http")}
           sizes="(max-width:768px) 50vw, 25vw"
         />
         {soldOut ? (

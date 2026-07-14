@@ -41,6 +41,7 @@ export default async function ProductPage({ params }: Props) {
               alt={product.name}
               fill
               quality={90}
+              unoptimized={product.image.startsWith("http")}
               className={`object-cover ${soldOut ? "opacity-70" : ""}`}
               sizes="(max-width:768px) 100vw, 50vw"
               priority

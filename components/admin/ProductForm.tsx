@@ -91,7 +91,11 @@ export default function ProductForm({ mode, initial }: Props) {
     try {
       const form = new FormData();
       form.append("file", file);
-      const res = await fetch("/api/admin/upload", { method: "POST", body: form });
+      const res = await fetch("/api/admin/upload", {
+        method: "POST",
+        body: form,
+        cache: "no-store",
+      });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Error al subir");
       setImage(data.url);
@@ -139,6 +143,7 @@ export default function ProductForm({ mode, initial }: Props) {
           method: mode === "create" ? "POST" : "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
+          cache: "no-store",
         },
       );
       const data = await res.json();
@@ -395,6 +400,7 @@ export default function ProductForm({ mode, initial }: Props) {
               src={preview}
               alt={name || "Vista previa"}
               fill
+              unoptimized={preview.startsWith("http")}
               className="object-contain p-4"
               sizes="280px"
             />

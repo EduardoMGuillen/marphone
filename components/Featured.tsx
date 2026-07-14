@@ -49,6 +49,7 @@ export default function Featured({ products }: Props) {
                   alt={product.name}
                   fill
                   quality={85}
+                  unoptimized={product.image.startsWith("http")}
                   className={`object-cover transition duration-700 group-hover:scale-105 ${
                     isProductSoldOut(product) ? "opacity-60" : ""
                   }`}

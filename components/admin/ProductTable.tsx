@@ -21,7 +21,10 @@ export default function ProductTable({ products }: Props) {
     setBusy(slug);
     setError("");
     try {
-      const res = await fetch(`/api/admin/products/${slug}`, { method: "DELETE" });
+      const res = await fetch(`/api/admin/products/${slug}`, {
+        method: "DELETE",
+        cache: "no-store",
+      });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "No se pudo eliminar");
       router.refresh();
@@ -75,6 +78,7 @@ export default function ProductTable({ products }: Props) {
                           src={product.image}
                           alt={product.name}
                           fill
+                          unoptimized={product.image.startsWith("http")}
                           className="object-contain p-1.5"
                           sizes="56px"
                         />
