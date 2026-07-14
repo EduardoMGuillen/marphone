@@ -3,6 +3,7 @@ import Link from "next/link";
 import {
   INSTAGRAM_HANDLE,
   NEXUS_URL,
+  STORE_ADDRESS,
   WHATSAPP_DISPLAY,
 } from "@/lib/constants";
 import { instagramUrl, whatsappInterestUrl } from "@/lib/contact";
@@ -48,6 +49,11 @@ export default function Footer() {
               </a>
             </li>
             <li>
+              <a href="/#ubicacion" className="hover:text-foreground">
+                Ubicación
+              </a>
+            </li>
+            <li>
               <Link href="/#contacto" className="hover:text-foreground">
                 Contacto
               </Link>
@@ -58,6 +64,14 @@ export default function Footer() {
         <div>
           <p className="text-sm font-semibold">Contacto</p>
           <ul className="mt-3 space-y-2 text-sm text-muted">
+            <li>
+              <a
+                href="/#ubicacion"
+                className="hover:text-brand-blue"
+              >
+                {STORE_ADDRESS}
+              </a>
+            </li>
             <li>
               <a
                 href={whatsappInterestUrl()}

@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import type { Product } from "@/lib/products";
+import { isProductSoldOut } from "@/lib/products";
 import { whatsappInterestUrl } from "@/lib/contact";
 
 type Props = {
@@ -28,8 +29,7 @@ export default function Featured({ products }: Props) {
             La nueva generación.
           </h2>
           <p className="mt-4 text-muted md:text-lg">
-            iPhone 17, Pro y Pro Max — y lo mejor de Android. Consulta disponibilidad
-            por WhatsApp.
+            Lo más pedido del catálogo. Consulta disponibilidad por WhatsApp.
           </p>
         </motion.div>
 
@@ -48,22 +48,31 @@ export default function Featured({ products }: Props) {
                   src={product.image}
                   alt={product.name}
                   fill
-                  className="object-cover transition duration-700 group-hover:scale-105"
+                  className={`object-contain p-8 transition duration-700 group-hover:scale-105 ${
+                    isProductSoldOut(product) ? "opacity-60" : ""
+                  }`}
                   sizes="(max-width:768px) 100vw, 33vw"
                 />
+                {isProductSoldOut(product) ? (
+                  <span className="absolute left-4 top-4 rounded-full bg-black px-3 py-1.5 text-xs font-semibold text-white">
+                    Agotado
+                  </span>
+                ) : null}
               </Link>
               <div className="flex flex-1 flex-col p-6">
                 <h3 className="font-display text-xl font-semibold">{product.name}</h3>
                 <p className="mt-2 flex-1 text-sm text-muted">{product.tagline}</p>
                 <div className="mt-5 flex flex-wrap gap-2">
-                  <a
-                    href={whatsappInterestUrl(product.name)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="rounded-full bg-black px-4 py-2 text-xs font-semibold text-white transition hover:bg-brand-blue"
-                  >
-                    Consultar este modelo
-                  </a>
+                  {isProductSoldOut(product) ? null : (
+                    <a
+                      href={whatsappInterestUrl(product.name)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="rounded-full bg-black px-4 py-2 text-xs font-semibold text-white transition hover:bg-brand-blue"
+                    >
+                      Consultar este modelo
+                    </a>
+                  )}
                   <Link
                     href={`/productos/${product.slug}`}
                     className="rounded-full border border-black/10 px-4 py-2 text-xs font-semibold transition hover:border-black/30"

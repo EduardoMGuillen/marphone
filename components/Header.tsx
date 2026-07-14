@@ -10,6 +10,7 @@ const nav = [
   { href: "/#destacados", label: "Destacados" },
   { href: "/#catalogo", label: "Catálogo" },
   { href: "/#nosotros", label: "Nosotros" },
+  { href: "/#ubicacion", label: "Ubicación" },
   { href: "/#contacto", label: "Contacto" },
 ];
 

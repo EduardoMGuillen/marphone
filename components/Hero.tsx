@@ -2,22 +2,25 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { demoImages } from "@/lib/demo-images";
 import { whatsappInterestUrl } from "@/lib/contact";
 
-export default function Hero() {
+type Props = {
+  heroImage?: string;
+};
+
+export default function Hero({ heroImage = "/products/iphone-17-pro-max.jpg" }: Props) {
   return (
     <section className="relative min-h-[100svh] overflow-hidden bg-black text-white">
       <div className="absolute inset-0">
         <Image
-          src={demoImages.titanium}
+          src={heroImage}
           alt="Smartphone premium Marphone"
           fill
           priority
-          className="object-cover object-center opacity-60"
+          className="object-cover object-center opacity-55"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/45 to-black" />
       </div>
 
       <div className="relative mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-end px-5 pb-20 pt-28 md:justify-center md:px-8 md:pb-28">
@@ -42,7 +45,7 @@ export default function Hero() {
             <span className="block text-brand-blue">Hoy en Marphone.</span>
           </h1>
           <p className="mt-5 max-w-lg text-base text-white/75 md:text-lg">
-            Catálogo premium de iPhone, Galaxy, Pixel y más. Compra fácil por
+            Teléfonos, tablets, audífonos y accesorios. Compra fácil por
             WhatsApp o Instagram.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">

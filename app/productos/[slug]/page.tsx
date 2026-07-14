@@ -3,21 +3,19 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { INSTAGRAM_HANDLE } from "@/lib/constants";
-import { instagramUrl, whatsappInterestUrl } from "@/lib/contact";
-import { getProduct, products } from "@/lib/products";
+import ProductPurchase from "@/components/ProductPurchase";
+import { getProduct } from "@/lib/product-store";
+import { isProductSoldOut } from "@/lib/products";
+
+export const dynamic = "force-dynamic";
 
 type Props = {
   params: Promise<{ slug: string }>;
 };
 
-export function generateStaticParams() {
-  return products.map((p) => ({ slug: p.slug }));
-}
-
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
-  const product = getProduct(slug);
+  const product = await getProduct(slug);
   if (!product) return { title: "Producto | Marphone" };
   return {
     title: `${product.name} | Marphone`,
@@ -27,8 +25,10 @@ export async function generateMetadata({ params }: Props) {
 
 export default async function ProductPage({ params }: Props) {
   const { slug } = await params;
-  const product = getProduct(slug);
+  const product = await getProduct(slug);
   if (!product) notFound();
+
+  const soldOut = isProductSoldOut(product);
 
   return (
     <>
@@ -40,10 +40,15 @@ export default async function ProductPage({ params }: Props) {
               src={product.image}
               alt={product.name}
               fill
-              className="object-cover"
+              className={`object-contain p-8 ${soldOut ? "opacity-70" : ""}`}
               sizes="(max-width:768px) 100vw, 50vw"
               priority
             />
+            {soldOut ? (
+              <span className="absolute left-4 top-4 rounded-full bg-black px-3 py-1.5 text-xs font-semibold text-white">
+                Agotado
+              </span>
+            ) : null}
           </div>
 
           <div className="flex flex-col justify-center">
@@ -54,7 +59,7 @@ export default async function ProductPage({ params }: Props) {
               ← Volver al catálogo
             </Link>
             <p className="text-sm font-semibold tracking-wide text-brand-blue uppercase">
-              {product.brand} · {product.series}
+              {product.category} · {product.brand} · {product.series}
             </p>
             <h1 className="mt-2 font-display text-4xl font-semibold tracking-tight md:text-5xl">
               {product.name}
@@ -65,52 +70,32 @@ export default async function ProductPage({ params }: Props) {
             </p>
 
             <div className="mt-8 space-y-5 border-t border-black/10 pt-8">
-              <div>
-                <p className="text-xs font-semibold tracking-wide text-muted uppercase">
-                  Almacenamiento
-                </p>
-                <p className="mt-2 text-sm">{product.storage.join(" · ")}</p>
-              </div>
-              <div>
-                <p className="text-xs font-semibold tracking-wide text-muted uppercase">
-                  Colores
-                </p>
-                <p className="mt-2 text-sm">{product.colors.join(" · ")}</p>
-              </div>
-              <div>
-                <p className="text-xs font-semibold tracking-wide text-muted uppercase">
-                  Destacados
-                </p>
-                <ul className="mt-2 space-y-1 text-sm">
-                  {product.specs.map((s) => (
-                    <li key={s}>— {s}</li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+              {product.storage.length > 0 ? (
+                <div>
+                  <p className="text-xs font-semibold tracking-wide text-muted uppercase">
+                    {product.category === "Teléfonos" || product.category === "Tablets"
+                      ? "Almacenamiento"
+                      : "Variantes"}
+                  </p>
+                  <p className="mt-2 text-sm">{product.storage.join(" · ")}</p>
+                </div>
+              ) : null}
 
-            <div className="mt-10 flex flex-wrap gap-3">
-              <a
-                href={whatsappInterestUrl(product.name)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-full bg-brand-blue px-6 py-3 text-sm font-semibold text-white transition hover:bg-brand-blue-dark"
-              >
-                Consultar por WhatsApp
-              </a>
-              <a
-                href={instagramUrl()}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-full border border-black/15 px-6 py-3 text-sm font-semibold transition hover:border-brand-blue hover:text-brand-blue"
-              >
-                Instagram {INSTAGRAM_HANDLE}
-              </a>
+              <ProductPurchase product={product} />
+
+              {product.specs.length > 0 ? (
+                <div className="border-t border-black/10 pt-5">
+                  <p className="text-xs font-semibold tracking-wide text-muted uppercase">
+                    Detalles
+                  </p>
+                  <ul className="mt-2 space-y-1 text-sm">
+                    {product.specs.map((s) => (
+                      <li key={s}>— {s}</li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
             </div>
-            <p className="mt-4 text-xs text-muted">
-              Al tocar WhatsApp se abre un mensaje: “Hola, estoy interesado en
-              este modelo: {product.name}”
-            </p>
           </div>
         </div>
       </main>

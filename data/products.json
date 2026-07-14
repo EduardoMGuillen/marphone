@@ -1,0 +1,950 @@
+[
+  {
+    "slug": "iphone-17-pro-max",
+    "name": "iPhone 17 Pro Max",
+    "category": "Teléfonos",
+    "brand": "Apple",
+    "series": "iPhone 17",
+    "tagline": "El flagship absoluto. Pantalla, batería y cámara al límite.",
+    "priceLabel": "Consultar",
+    "storage": [
+      "256 GB",
+      "512 GB",
+      "1 TB",
+      "2 TB"
+    ],
+    "colors": [
+      {
+        "name": "Negro Titanio",
+        "soldOut": false
+      },
+      {
+        "name": "Blanco Titanio",
+        "soldOut": false
+      },
+      {
+        "name": "Azul Titanio",
+        "soldOut": false
+      },
+      {
+        "name": "Naranja Titanio",
+        "soldOut": false
+      }
+    ],
+    "specs": [
+      "Chip A19 Pro",
+      "Sistema de cámara Pro",
+      "Pantalla Super Retina XDR",
+      "Titanium"
+    ],
+    "featured": true,
+    "image": "/products/iphone-17-pro-max.jpg",
+    "soldOut": false
+  },
+  {
+    "slug": "iphone-17-pro",
+    "name": "iPhone 17 Pro",
+    "category": "Teléfonos",
+    "brand": "Apple",
+    "series": "iPhone 17",
+    "tagline": "Potencia profesional en un tamaño perfecto.",
+    "priceLabel": "Consultar",
+    "storage": [
+      "256 GB",
+      "512 GB",
+      "1 TB"
+    ],
+    "colors": [
+      {
+        "name": "Negro Titanio",
+        "soldOut": false
+      },
+      {
+        "name": "Blanco Titanio",
+        "soldOut": false
+      },
+      {
+        "name": "Azul Titanio",
+        "soldOut": false
+      }
+    ],
+    "specs": [
+      "Chip A19 Pro",
+      "Cámara Pro",
+      "ProMotion 120 Hz",
+      "USB-C"
+    ],
+    "featured": true,
+    "image": "/products/iphone-17-pro.jpg",
+    "soldOut": false
+  },
+  {
+    "slug": "iphone-17",
+    "name": "iPhone 17",
+    "category": "Teléfonos",
+    "brand": "Apple",
+    "series": "iPhone 17",
+    "tagline": "Nueva generación. Ligero, rápido y brillante.",
+    "priceLabel": "Consultar",
+    "storage": [
+      "128 GB",
+      "256 GB",
+      "512 GB"
+    ],
+    "colors": [
+      {
+        "name": "Negro",
+        "soldOut": false
+      },
+      {
+        "name": "Blanco",
+        "soldOut": false
+      },
+      {
+        "name": "Azul",
+        "soldOut": false
+      },
+      {
+        "name": "Rosa",
+        "soldOut": false
+      }
+    ],
+    "specs": [
+      "Chip A19",
+      "Cámara dual avanzada",
+      "Dynamic Island",
+      "Ceramic Shield"
+    ],
+    "featured": true,
+    "image": "/products/iphone-17.jpg",
+    "soldOut": false
+  },
+  {
+    "slug": "iphone-16-pro-max",
+    "name": "iPhone 16 Pro Max",
+    "category": "Teléfonos",
+    "brand": "Apple",
+    "series": "iPhone 16",
+    "tagline": "Pro Max de la generación anterior, precio imbatible.",
+    "priceLabel": "Consultar",
+    "storage": [
+      "256 GB",
+      "512 GB",
+      "1 TB"
+    ],
+    "colors": [
+      {
+        "name": "Negro Titanio",
+        "soldOut": false
+      },
+      {
+        "name": "Desierto Titanio",
+        "soldOut": false
+      },
+      {
+        "name": "Natural Titanio",
+        "soldOut": false
+      },
+      {
+        "name": "Blanco Titanio",
+        "soldOut": false
+      }
+    ],
+    "specs": [
+      "Chip A18 Pro",
+      "Cámara 48 MP",
+      "Control de cámara",
+      "Titanium"
+    ],
+    "image": "/products/iphone-16-pro-max.jpg",
+    "soldOut": false
+  },
+  {
+    "slug": "iphone-16-pro",
+    "name": "iPhone 16 Pro",
+    "category": "Teléfonos",
+    "brand": "Apple",
+    "series": "iPhone 16",
+    "tagline": "Rendimiento Pro en formato compacto.",
+    "priceLabel": "Consultar",
+    "storage": [
+      "128 GB",
+      "256 GB",
+      "512 GB",
+      "1 TB"
+    ],
+    "colors": [
+      {
+        "name": "Negro Titanio",
+        "soldOut": false
+      },
+      {
+        "name": "Desierto Titanio",
+        "soldOut": false
+      },
+      {
+        "name": "Natural Titanio",
+        "soldOut": false
+      },
+      {
+        "name": "Blanco Titanio",
+        "soldOut": false
+      }
+    ],
+    "specs": [
+      "Chip A18 Pro",
+      "Cámara Pro",
+      "Action Button",
+      "ProMotion"
+    ],
+    "image": "/products/iphone-16-pro.jpg",
+    "soldOut": false
+  },
+  {
+    "slug": "iphone-16",
+    "name": "iPhone 16",
+    "category": "Teléfonos",
+    "brand": "Apple",
+    "series": "iPhone 16",
+    "tagline": "Equilibrio perfecto entre potencia y precio.",
+    "priceLabel": "Consultar",
+    "storage": [
+      "128 GB",
+      "256 GB",
+      "512 GB"
+    ],
+    "colors": [
+      {
+        "name": "Negro",
+        "soldOut": false
+      },
+      {
+        "name": "Blanco",
+        "soldOut": false
+      },
+      {
+        "name": "Rosa",
+        "soldOut": false
+      },
+      {
+        "name": "Verde azulado",
+        "soldOut": false
+      },
+      {
+        "name": "Ultramarino",
+        "soldOut": false
+      }
+    ],
+    "specs": [
+      "Chip A18",
+      "Cámara Fusion 48 MP",
+      "Botón de cámara",
+      "USB-C"
+    ],
+    "image": "/products/iphone-16.jpg",
+    "soldOut": false
+  },
+  {
+    "slug": "iphone-16-plus",
+    "name": "iPhone 16 Plus",
+    "category": "Teléfonos",
+    "brand": "Apple",
+    "series": "iPhone 16",
+    "tagline": "Más pantalla. Más batería. Misma generación.",
+    "priceLabel": "Consultar",
+    "storage": [
+      "128 GB",
+      "256 GB",
+      "512 GB"
+    ],
+    "colors": [
+      {
+        "name": "Negro",
+        "soldOut": false
+      },
+      {
+        "name": "Blanco",
+        "soldOut": false
+      },
+      {
+        "name": "Rosa",
+        "soldOut": false
+      },
+      {
+        "name": "Verde azulado",
+        "soldOut": false
+      },
+      {
+        "name": "Ultramarino",
+        "soldOut": false
+      }
+    ],
+    "specs": [
+      "Chip A18",
+      "Pantalla 6.7\"",
+      "Cámara Fusion",
+      "USB-C"
+    ],
+    "image": "/products/iphone-16-plus.jpg",
+    "soldOut": false
+  },
+  {
+    "slug": "iphone-15-pro-max",
+    "name": "iPhone 15 Pro Max",
+    "category": "Teléfonos",
+    "brand": "Apple",
+    "series": "iPhone 15",
+    "tagline": "Titanium legendario a precio de oportunidad.",
+    "priceLabel": "Consultar",
+    "storage": [
+      "256 GB",
+      "512 GB",
+      "1 TB"
+    ],
+    "colors": [
+      {
+        "name": "Negro Titanio",
+        "soldOut": false
+      },
+      {
+        "name": "Azul Titanio",
+        "soldOut": false
+      },
+      {
+        "name": "Blanco Titanio",
+        "soldOut": false
+      },
+      {
+        "name": "Titanio natural",
+        "soldOut": false
+      }
+    ],
+    "specs": [
+      "Chip A17 Pro",
+      "Cámara 5x",
+      "Action Button",
+      "USB-C"
+    ],
+    "image": "/products/iphone-15-pro-max.jpg",
+    "soldOut": false
+  },
+  {
+    "slug": "iphone-15-pro",
+    "name": "iPhone 15 Pro",
+    "category": "Teléfonos",
+    "brand": "Apple",
+    "series": "iPhone 15",
+    "tagline": "Pro sin complicaciones. Listo para lo diario y lo creativo.",
+    "priceLabel": "Consultar",
+    "storage": [
+      "128 GB",
+      "256 GB",
+      "512 GB",
+      "1 TB"
+    ],
+    "colors": [
+      {
+        "name": "Negro Titanio",
+        "soldOut": false
+      },
+      {
+        "name": "Azul Titanio",
+        "soldOut": false
+      },
+      {
+        "name": "Blanco Titanio",
+        "soldOut": false
+      },
+      {
+        "name": "Titanio natural",
+        "soldOut": false
+      }
+    ],
+    "specs": [
+      "Chip A17 Pro",
+      "Cámara Pro",
+      "Action Button",
+      "USB-C"
+    ],
+    "image": "/products/iphone-15-pro.jpg",
+    "soldOut": false
+  },
+  {
+    "slug": "iphone-15",
+    "name": "iPhone 15",
+    "category": "Teléfonos",
+    "brand": "Apple",
+    "series": "iPhone 15",
+    "tagline": "Dynamic Island y USB-C en el esencial de Apple.",
+    "priceLabel": "Consultar",
+    "storage": [
+      "128 GB",
+      "256 GB",
+      "512 GB"
+    ],
+    "colors": [
+      {
+        "name": "Negro",
+        "soldOut": false
+      },
+      {
+        "name": "Azul",
+        "soldOut": false
+      },
+      {
+        "name": "Verde",
+        "soldOut": false
+      },
+      {
+        "name": "Amarillo",
+        "soldOut": false
+      },
+      {
+        "name": "Rosa",
+        "soldOut": false
+      }
+    ],
+    "specs": [
+      "Chip A16",
+      "Cámara 48 MP",
+      "Dynamic Island",
+      "USB-C"
+    ],
+    "image": "/products/iphone-15.jpg",
+    "soldOut": false
+  },
+  {
+    "slug": "iphone-14-pro",
+    "name": "iPhone 14 Pro",
+    "category": "Teléfonos",
+    "brand": "Apple",
+    "series": "iPhone 14",
+    "tagline": "Always-On y cámara Pro aún vigentes.",
+    "priceLabel": "Consultar",
+    "storage": [
+      "128 GB",
+      "256 GB",
+      "512 GB"
+    ],
+    "colors": [
+      {
+        "name": "Negro espacial",
+        "soldOut": false
+      },
+      {
+        "name": "Plata",
+        "soldOut": false
+      },
+      {
+        "name": "Oro",
+        "soldOut": false
+      },
+      {
+        "name": "Morado intenso",
+        "soldOut": false
+      }
+    ],
+    "specs": [
+      "Chip A16",
+      "Always-On Display",
+      "Cámara 48 MP",
+      "Dynamic Island"
+    ],
+    "image": "/products/iphone-14-pro.jpg",
+    "soldOut": false
+  },
+  {
+    "slug": "galaxy-s25-ultra",
+    "name": "Galaxy S25 Ultra",
+    "category": "Teléfonos",
+    "brand": "Samsung",
+    "series": "Galaxy S25",
+    "tagline": "S Pen, zoom extremo y pantalla de referencia.",
+    "priceLabel": "Consultar",
+    "storage": [
+      "256 GB",
+      "512 GB",
+      "1 TB"
+    ],
+    "colors": [
+      {
+        "name": "Negro Titanio",
+        "soldOut": false
+      },
+      {
+        "name": "Gris Titanio",
+        "soldOut": false
+      },
+      {
+        "name": "Azul Titanio",
+        "soldOut": false
+      },
+      {
+        "name": "Plata",
+        "soldOut": false
+      }
+    ],
+    "specs": [
+      "Snapdragon elite",
+      "S Pen",
+      "Cámara 200 MP",
+      "Gorilla Armor"
+    ],
+    "featured": true,
+    "image": "/products/galaxy-s25-ultra.jpg",
+    "soldOut": false
+  },
+  {
+    "slug": "galaxy-s25-plus",
+    "name": "Galaxy S25+",
+    "category": "Teléfonos",
+    "brand": "Samsung",
+    "series": "Galaxy S25",
+    "tagline": "Pantalla ampla y autonomía Galaxy.",
+    "priceLabel": "Consultar",
+    "storage": [
+      "256 GB",
+      "512 GB"
+    ],
+    "colors": [
+      {
+        "name": "Azul marino",
+        "soldOut": false
+      },
+      {
+        "name": "Gris sombra",
+        "soldOut": false
+      },
+      {
+        "name": "Plata",
+        "soldOut": false
+      },
+      {
+        "name": "Negro",
+        "soldOut": false
+      }
+    ],
+    "specs": [
+      "Pantalla Dynamic AMOLED 2X",
+      "Carga rápida",
+      "IP68",
+      "AI Galaxy"
+    ],
+    "image": "/products/galaxy-s25-plus.jpg",
+    "soldOut": false
+  },
+  {
+    "slug": "galaxy-s25",
+    "name": "Galaxy S25",
+    "category": "Teléfonos",
+    "brand": "Samsung",
+    "series": "Galaxy S25",
+    "tagline": "Compacto, potente y con IA de Samsung.",
+    "priceLabel": "Consultar",
+    "storage": [
+      "128 GB",
+      "256 GB"
+    ],
+    "colors": [
+      {
+        "name": "Azul marino",
+        "soldOut": false
+      },
+      {
+        "name": "Gris sombra",
+        "soldOut": false
+      },
+      {
+        "name": "Plata",
+        "soldOut": false
+      },
+      {
+        "name": "Negro",
+        "soldOut": false
+      }
+    ],
+    "specs": [
+      "AI Galaxy",
+      "Cámara triple",
+      "IP68",
+      "120 Hz"
+    ],
+    "image": "/products/galaxy-s25.jpg",
+    "soldOut": false
+  },
+  {
+    "slug": "galaxy-z-fold6",
+    "name": "Galaxy Z Fold6",
+    "category": "Teléfonos",
+    "brand": "Samsung",
+    "series": "Galaxy Z",
+    "tagline": "Tablet y teléfono en un solo dispositivo.",
+    "priceLabel": "Consultar",
+    "storage": [
+      "256 GB",
+      "512 GB",
+      "1 TB"
+    ],
+    "colors": [
+      {
+        "name": "Negro fantasma",
+        "soldOut": false
+      },
+      {
+        "name": "Plata sombra",
+        "soldOut": false
+      },
+      {
+        "name": "Rosa",
+        "soldOut": false
+      },
+      {
+        "name": "Azul marino",
+        "soldOut": false
+      }
+    ],
+    "specs": [
+      "Pantalla plegable",
+      "Multitarea",
+      "S Pen compatible",
+      "IPX8"
+    ],
+    "image": "/products/galaxy-z-fold6.jpg",
+    "soldOut": false
+  },
+  {
+    "slug": "galaxy-z-flip6",
+    "name": "Galaxy Z Flip6",
+    "category": "Teléfonos",
+    "brand": "Samsung",
+    "series": "Galaxy Z",
+    "tagline": "Estilo icónico. Formato plegable tipo clamshell.",
+    "priceLabel": "Consultar",
+    "storage": [
+      "256 GB",
+      "512 GB"
+    ],
+    "colors": [
+      {
+        "name": "Azul sombra",
+        "soldOut": false
+      },
+      {
+        "name": "Plata sombra",
+        "soldOut": false
+      },
+      {
+        "name": "Mint",
+        "soldOut": false
+      },
+      {
+        "name": "Amarillo",
+        "soldOut": false
+      }
+    ],
+    "specs": [
+      "Flex Window",
+      "AI Galaxy",
+      "Compacto",
+      "IPX8"
+    ],
+    "image": "/products/galaxy-z-flip6.jpg",
+    "soldOut": false
+  },
+  {
+    "slug": "pixel-9-pro-xl",
+    "name": "Pixel 9 Pro XL",
+    "category": "Teléfonos",
+    "brand": "Google",
+    "series": "Pixel 9",
+    "tagline": "La mejor cámara computacional de Google.",
+    "priceLabel": "Consultar",
+    "storage": [
+      "128 GB",
+      "256 GB",
+      "512 GB"
+    ],
+    "colors": [
+      {
+        "name": "Obsidiana",
+        "soldOut": false
+      },
+      {
+        "name": "Porcelana",
+        "soldOut": false
+      },
+      {
+        "name": "Hazel",
+        "soldOut": false
+      },
+      {
+        "name": "Rosa",
+        "soldOut": false
+      }
+    ],
+    "specs": [
+      "Tensor G4",
+      "Gemini Nano",
+      "Zoom Pro",
+      "Pantalla LTPO"
+    ],
+    "image": "/products/pixel-9-pro-xl.jpg",
+    "soldOut": false
+  },
+  {
+    "slug": "pixel-9-pro",
+    "name": "Pixel 9 Pro",
+    "category": "Teléfonos",
+    "brand": "Google",
+    "series": "Pixel 9",
+    "tagline": "Pro en tamaño ideal. Foto y IA de primer nivel.",
+    "priceLabel": "Consultar",
+    "storage": [
+      "128 GB",
+      "256 GB",
+      "512 GB"
+    ],
+    "colors": [
+      {
+        "name": "Obsidiana",
+        "soldOut": false
+      },
+      {
+        "name": "Porcelana",
+        "soldOut": false
+      },
+      {
+        "name": "Hazel",
+        "soldOut": false
+      },
+      {
+        "name": "Rosa",
+        "soldOut": false
+      }
+    ],
+    "specs": [
+      "Tensor G4",
+      "Cámara Pro",
+      "Magic Editor",
+      "7 años de updates"
+    ],
+    "image": "/products/pixel-9-pro.jpg",
+    "soldOut": false
+  },
+  {
+    "slug": "pixel-9",
+    "name": "Pixel 9",
+    "category": "Teléfonos",
+    "brand": "Google",
+    "series": "Pixel 9",
+    "tagline": "Simplicidad Google. Fotos impecables.",
+    "priceLabel": "Consultar",
+    "storage": [
+      "128 GB",
+      "256 GB"
+    ],
+    "colors": [
+      {
+        "name": "Obsidiana",
+        "soldOut": false
+      },
+      {
+        "name": "Porcelana",
+        "soldOut": false
+      },
+      {
+        "name": "Peonía",
+        "soldOut": false
+      },
+      {
+        "name": "Verde invierno",
+        "soldOut": false
+      }
+    ],
+    "specs": [
+      "Tensor G4",
+      "Gemini",
+      "Carga inalámbrica",
+      "IP68"
+    ],
+    "image": "/products/pixel-9.jpg",
+    "soldOut": false
+  },
+  {
+    "slug": "xiaomi-15-ultra",
+    "name": "Xiaomi 15 Ultra",
+    "category": "Teléfonos",
+    "brand": "Xiaomi",
+    "series": "Xiaomi 15",
+    "tagline": "Óptica Leica. Flagship fotográfico.",
+    "priceLabel": "Consultar",
+    "storage": [
+      "512 GB",
+      "1 TB"
+    ],
+    "colors": [
+      {
+        "name": "Negro",
+        "soldOut": false
+      },
+      {
+        "name": "Blanco",
+        "soldOut": false
+      },
+      {
+        "name": "Verde",
+        "soldOut": false
+      }
+    ],
+    "specs": [
+      "Leica Optics",
+      "Snapdragon elite",
+      "Carga hiper rápida",
+      "IP68"
+    ],
+    "image": "/products/xiaomi-15-ultra.jpg",
+    "soldOut": false
+  },
+  {
+    "slug": "oneplus-13",
+    "name": "OnePlus 13",
+    "category": "Teléfonos",
+    "brand": "OnePlus",
+    "series": "OnePlus",
+    "tagline": "Velocidad, carga y rendimiento sin fricción.",
+    "priceLabel": "Consultar",
+    "storage": [
+      "256 GB",
+      "512 GB",
+      "1 TB"
+    ],
+    "colors": [
+      {
+        "name": "Negro",
+        "soldOut": false
+      },
+      {
+        "name": "Azul",
+        "soldOut": false
+      },
+      {
+        "name": "Blanco",
+        "soldOut": false
+      }
+    ],
+    "specs": [
+      "Snapdragon elite",
+      "Hasselblad",
+      "Carga 100W",
+      "OxygenOS"
+    ],
+    "image": "/products/oneplus-13.jpg",
+    "soldOut": false
+  },
+  {
+    "slug": "sony-xperia-1-vi",
+    "name": "Sony Xperia 1 VI",
+    "category": "Teléfonos",
+    "brand": "Sony",
+    "series": "Xperia",
+    "tagline": "Cine y foto profesionales en formato 21:9.",
+    "priceLabel": "Consultar",
+    "storage": [
+      "256 GB",
+      "512 GB"
+    ],
+    "colors": [
+      {
+        "name": "Negro",
+        "soldOut": false
+      },
+      {
+        "name": "Plata",
+        "soldOut": false
+      },
+      {
+        "name": "Verde khaki",
+        "soldOut": false
+      }
+    ],
+    "specs": [
+      "Pantalla 4K CinemaWide",
+      "Óptica ZEISS",
+      "3.5 mm jack",
+      "MicroSD"
+    ],
+    "image": "/products/sony-xperia-1-vi.jpg",
+    "soldOut": false
+  },
+  {
+    "slug": "oppo-find-x8-pro",
+    "name": "OPPO Find X8 Pro",
+    "category": "Teléfonos",
+    "brand": "Oppo",
+    "series": "Find X",
+    "tagline": "Diseño premium y cámara Hasselblad-level.",
+    "priceLabel": "Consultar",
+    "storage": [
+      "256 GB",
+      "512 GB"
+    ],
+    "colors": [
+      {
+        "name": "Negro espacial",
+        "soldOut": false
+      },
+      {
+        "name": "Azul glaciares",
+        "soldOut": false
+      },
+      {
+        "name": "Blanco",
+        "soldOut": false
+      }
+    ],
+    "specs": [
+      "Pantalla LTPO",
+      "Zoom periscopio",
+      "Carga rápida",
+      "IP68"
+    ],
+    "image": "/products/oppo-find-x8-pro.jpg",
+    "soldOut": false
+  },
+  {
+    "slug": "honor-magic7-pro",
+    "name": "Honor Magic7 Pro",
+    "category": "Teléfonos",
+    "brand": "Honor",
+    "series": "Magic",
+    "tagline": "AI flagship con batería y brillo extremos.",
+    "priceLabel": "Consultar",
+    "storage": [
+      "256 GB",
+      "512 GB",
+      "1 TB"
+    ],
+    "colors": [
+      {
+        "name": "Negro",
+        "soldOut": false
+      },
+      {
+        "name": "Gris lunar",
+        "soldOut": false
+      },
+      {
+        "name": "Naranja",
+        "soldOut": false
+      }
+    ],
+    "specs": [
+      "Snapdragon elite",
+      "Cámara AI",
+      "Pantalla silicon-OLED",
+      "IP68"
+    ],
+    "image": "/products/honor-magic7-pro.jpg",
+    "soldOut": false
+  }
+]
